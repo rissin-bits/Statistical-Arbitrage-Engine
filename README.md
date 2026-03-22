@@ -35,19 +35,19 @@ RAW PRICE DATA (N ticks × 3 exchanges)
 
 ## The 5-Filter Pipeline
 
-### Filter 1 — Spread Threshold
+### Filter 1 - Spread Threshold
 Computes the max spread across all exchange pairs in basis points. Discards ticks where the spread is too small to be interesting.
 
-### Filter 2 — Cost Adjustment
-Subtracts exchange fees and slippage from the gross spread. Only passes if the net spread is positive — the trade must be profitable after all costs.
+### Filter 2 - Cost Adjustment
+Subtracts exchange fees and slippage from the gross spread. Only passes if the net spread is positive; the trade must be profitable after all costs.
 
-### Filter 3 — Persistence
+### Filter 3 - Persistence
 Requires the spread to persist for N consecutive ticks. One-tick spikes are likely stale quotes or data glitches, not real opportunities.
 
-### Filter 4 — Z-Score
+### Filter 4 - Z-Score
 Normalizes the spread against its rolling history. A 7 bps spread is meaningless if the pair normally fluctuates 5–10 bps. Only passes if the spread is statistically unusual (|z| > threshold).
 
-### Filter 5 — Volatility-Adjusted
+### Filter 5 - Volatility-Adjusted
 Divides the spread by current realized volatility. A 10 bps spread during calm markets is meaningful; the same 10 bps during volatile markets is just noise. Only passes if spread/vol exceeds the threshold.
 
 ## Backtest Engine

@@ -1,5 +1,6 @@
 # Statistical Arbitrage Engine
 ![Dashboard](Screenshot 2026-03-23 021734.png)
+
 A quantitative trading system that detects and exploits cross-exchange price dislocations using a 5-filter signal pipeline, automated backtesting, and adaptive parameter optimization.
 
 ## Overview
